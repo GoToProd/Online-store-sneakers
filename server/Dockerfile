@@ -1,15 +1,16 @@
-# Use the official Python base image
-FROM python:3.9
+FROM python:3.12
 
-# Set the working directory
 WORKDIR /server/
 
-# Install dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
-# Copy the application code
-COPY /server /
+RUN pip install --upgrade pip
 
-# Expose the port the app will run on
+COPY ../requirements.txt .
+
+RUN pip install -r requirements.txt
+
+COPY . .
+
 EXPOSE 8000
