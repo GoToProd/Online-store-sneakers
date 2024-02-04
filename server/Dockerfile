@@ -2,14 +2,14 @@
 FROM python:3.9
 
 # Set the working directory
-WORKDIR /server
+WORKDIR /server/
 
 # Install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code
-COPY . .
+COPY /server /
 
 # Expose the port the app will run on
 EXPOSE 8000
