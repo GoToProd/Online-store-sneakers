@@ -12,14 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 
 from pathlib import Path
-from dotenv import load_dotenv
 
-load_dotenv()
-
-DATABASE_NAME = os.getenv('DATABASE_NAME')
-DATABASE_USERNAME = os.getenv('DATABASE_USERNAME')
-DATABASE_PASSWORD = os.getenv('DATABASE_PASSWORD')
-DATABASE_PORT = os.getenv('DATABASE_PORT')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -85,7 +78,7 @@ DATABASES = {
         'NAME': os.getenv('DATABASE_NAME'),
         'USER': os.getenv('DATABASE_USERNAME'),
         'PASSWORD': os.getenv('DATABASE_PASSWORD'),
-        'HOST': 'localhost',    
+        'HOST': os.getenv('DATABASE_HOST'),    
         'PORT': os.getenv('DATABASE_PORT'),
     }
 }
